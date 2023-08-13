@@ -26,21 +26,20 @@ import frc.robot.FRC5010.sensors.gyro.GenericGyro;
 import frc.robot.FRC5010.sensors.gyro.RomiGyro;
 
 /** Add your docs here. */
-public class DefaultRobot extends GenericMechanism {
+public class ROMIRobot extends GenericMechanism {
     private GenericDrivetrainConstants driveConstants;
     private GenericMechanism drive;
     private VisionSystem vision;
 
-    public DefaultRobot(Mechanism2d visual, ShuffleboardTab displayTab) {
+    public ROMIRobot(Mechanism2d visual, ShuffleboardTab displayTab) {
         super(visual, displayTab);
-        // driveConstants = new GenericDrivetrainConstants();
-        // vision = new VisionLimeLightSim("Vision", 1, AprilTags.aprilTagRoomLayout);
-        // GenericGyro gyro = new RomiGyro();
+        driveConstants = new GenericDrivetrainConstants();
+        vision = new VisionLimeLightSim("Vision", 1, AprilTags.aprilTagRoomLayout);
+        GenericGyro gyro = new RomiGyro();
 
-        // List<DrivePorts> motorPorts = new ArrayList<>();
+        List<DrivePorts> motorPorts = new ArrayList<>();
 
-        // drive = new Drive(vision, gyro, Drive.Type.DIFF_DRIVE, motorPorts,
-        // driveConstants);
+        drive = new Drive(vision, gyro, Drive.Type.DIFF_DRIVE, motorPorts, driveConstants);
     }
 
     @Override
@@ -50,7 +49,7 @@ public class DefaultRobot extends GenericMechanism {
 
     @Override
     public void setupDefaultCommands(Controller driver, Controller operator) {
-        // drive.setupDefaultCommands(driver, operator);
+        drive.setupDefaultCommands(driver, operator);
     }
 
     @Override
@@ -64,6 +63,6 @@ public class DefaultRobot extends GenericMechanism {
 
     @Override
     public Command generateAutoCommand(List<PathPlannerTrajectory> paths) {
-        return null;// drive.generateAutoCommand(paths);
+        return drive.generateAutoCommand(paths);
     }
 }

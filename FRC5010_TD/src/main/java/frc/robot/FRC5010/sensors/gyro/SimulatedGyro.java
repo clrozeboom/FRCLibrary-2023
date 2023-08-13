@@ -48,4 +48,14 @@ public class SimulatedGyro implements GenericGyro {
         return getAngle();
     }
 
+    @Override
+    public void calibrate() {
+        // no-op
+    }
+
+    @Override
+    public void close() throws Exception {
+        // no-op
+    }
+
 }

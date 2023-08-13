@@ -42,9 +42,6 @@
     }
   },
   "NetworkTables": {
-    "Retained Values": {
-      "open": false
-    },
     "persistent": {
       "Preferences": {
         "open": true

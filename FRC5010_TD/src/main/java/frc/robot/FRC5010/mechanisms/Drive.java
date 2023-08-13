@@ -225,15 +225,15 @@ public class Drive extends GenericMechanism {
     }
 
     private void initializeDifferentialDrive() {
-        MotorController5010 template = MotorFactory.DriveTrainMotor(MotorFactory.NEO(1));
+        MotorController5010 template = MotorFactory.DriveTrainMotor(MotorFactory.SparkPWM(0));
         List<DrivePorts> motorPorts = new ArrayList<>();
 
-        // This assumes ports 1 & 2 are left and 3 & 4 are right
+        // This assumes ports 0 & 2 are left and 1 & 3 are right
         // This is just an example of how to put a sequence of numbers into a list
+        motorPorts.add(new DrivePorts(0));
         motorPorts.add(new DrivePorts(1));
         motorPorts.add(new DrivePorts(2));
         motorPorts.add(new DrivePorts(3));
-        motorPorts.add(new DrivePorts(4));
 
         drivetrain = new DifferentialDrivetrain(template, motorPorts, gyro, vision, mechVisual);
     }

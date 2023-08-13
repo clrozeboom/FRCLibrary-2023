@@ -11,7 +11,6 @@ import java.util.Map;
 import com.pathplanner.lib.PathPlannerTrajectory;
 
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj.DataLogManager;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.GenericHID;
@@ -21,14 +20,15 @@ import edu.wpi.first.wpilibj.smartdashboard.Mechanism2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.FRC5010.constants.Persisted;
 import frc.robot.FRC5010.constants.PersistedEnums;
 import frc.robot.FRC5010.constants.RobotConstantsDef;
 import frc.robot.FRC5010.mechanisms.GenericMechanism;
 import frc.robot.FRC5010.robots.BabySwerve;
 import frc.robot.FRC5010.robots.CurtsLaptopSimulator;
+import frc.robot.FRC5010.robots.DefaultRobot;
 import frc.robot.FRC5010.robots.PracticeBot;
+import frc.robot.FRC5010.robots.ROMIRobot;
 import frc.robot.FRC5010.sensors.Controller;
 import frc.robot.FRC5010.telemetery.WpiDataLogging;
 import frc.robot.chargedup.CubeCruzer;
@@ -90,6 +90,8 @@ public class RobotContainer extends GenericMechanism {
     public static final String BABY_SWERVE = "BabySwerve";
     public static final String PRACTICE_BOT = "PracticeBot";
     public static final String CURTS_LAPTOP_SIM = "CurtsLaptop";
+    public static final String DEFAULT_ROBOT = "DefaultRobot";
+    public static final String ROMI_ROBOT = "ROMI";
   }
 
   /**
@@ -136,8 +138,11 @@ public class RobotContainer extends GenericMechanism {
         robot = new CurtsLaptopSimulator(mechVisual, shuffleTab);
         break;
       }
+      case Robots.ROMI_ROBOT: {
+        robot = new ROMIRobot(mechVisual, shuffleTab);
+      }
       default: {
-        robot = new CubeCruzer(mechVisual, shuffleTab);
+        robot = new DefaultRobot(mechVisual, shuffleTab);
         break;
       }
     }

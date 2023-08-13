@@ -58,11 +58,11 @@ public class DifferentialDrivetrain extends GenericDrivetrain {
     motorList = new ArrayList<>();
     this.left = left;
     motorList.add(left);
-    MotorController5010 lMotor = left.duplicate(motorPorts.get(1).getDrivePort());
+    MotorController5010 lMotor = left.duplicate(motorPorts.get(2).getDrivePort());
     lMotor.setFollow(left);
     motorList.add(lMotor);
 
-    this.right = left.duplicate(motorPorts.get(2).getDrivePort());
+    this.right = left.duplicate(motorPorts.get(1).getDrivePort());
     right.invert(true);
     MotorController5010 rMotor = right.duplicate(motorPorts.get(3).getDrivePort());
     rMotor.setFollow(right);

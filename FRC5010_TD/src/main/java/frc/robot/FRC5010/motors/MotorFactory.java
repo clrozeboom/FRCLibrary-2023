@@ -8,25 +8,35 @@ import frc.robot.FRC5010.motors.function.DriveTrainMotor;
 import frc.robot.FRC5010.motors.function.FollowerMotor;
 import frc.robot.FRC5010.motors.hardware.NEO;
 import frc.robot.FRC5010.motors.hardware.NEO550;
+import frc.robot.FRC5010.motors.hardware.ROMIMotor;
 
 /** Add your docs here. */
 public class MotorFactory {
-    public static MotorController5010 NEO(int port){
+    public static MotorController5010 NEO(int port) {
         return new NEO(port);
     }
-    public static MotorController5010 NEO(int port, int currentLimit){
+
+    public static MotorController5010 NEO(int port, int currentLimit) {
         return new NEO(port, currentLimit);
     }
-    public static MotorController5010 NEO550(int port){
+
+    public static MotorController5010 NEO550(int port) {
         return new NEO550(port);
     }
-    public static MotorController5010 NEO550(int port, int currentLimit){
+
+    public static MotorController5010 NEO550(int port, int currentLimit) {
         return new NEO550(port, currentLimit);
     }
-    public static MotorController5010 DriveTrainMotor(MotorController5010 motor){
+
+    public static MotorController5010 SparkPWM(int port) {
+        return new ROMIMotor(port);
+    }
+
+    public static MotorController5010 DriveTrainMotor(MotorController5010 motor) {
         return new DriveTrainMotor(motor);
     }
-    public static MotorController5010 FollowMotor(MotorController5010 motor, MotorController5010 leader){
+
+    public static MotorController5010 FollowMotor(MotorController5010 motor, MotorController5010 leader) {
         return new FollowerMotor(motor, leader);
     }
 

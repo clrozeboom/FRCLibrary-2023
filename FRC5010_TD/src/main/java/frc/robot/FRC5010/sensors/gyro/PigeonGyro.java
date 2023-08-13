@@ -5,10 +5,6 @@
 package frc.robot.FRC5010.sensors.gyro;
 
 import com.ctre.phoenix.sensors.Pigeon2;
-import com.ctre.phoenix.sensors.PigeonIMU;
-
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import swervelib.imu.Pigeon2Swerve;
 
 /** Add your docs here. */
 public class PigeonGyro implements GenericGyro {
@@ -55,4 +51,14 @@ public class PigeonGyro implements GenericGyro {
         pigeon2.setYaw(angle);
     }
     // big kahunas
+
+    @Override
+    public void calibrate() {
+        // no-op
+    }
+
+    @Override
+    public void close() throws Exception {
+        // no-op
+    }
 }

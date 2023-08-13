@@ -4,13 +4,21 @@
 
 package frc.robot.FRC5010.sensors.gyro;
 
+import edu.wpi.first.wpilibj.interfaces.Gyro;
+
 /** Add your docs here. */
-public interface GenericGyro {
+public interface GenericGyro extends Gyro {
     void reset();
+
     double getAngle();
+
     double getAngleX();
+
     double getAngleY();
+
     double getAngleZ();
+
     double getRate();
+
     void setAngle(double angle);
 }

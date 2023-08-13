@@ -14,11 +14,11 @@ import frc.robot.FRC5010.sensors.encoder.GenericEncoder;
 public class GenericFunctionalMotor implements MotorController5010 {
     protected MotorController5010 _motor;
 
-    public GenericFunctionalMotor(MotorController5010 motor){
+    public GenericFunctionalMotor(MotorController5010 motor) {
         this._motor = motor;
     }
 
-    public GenericFunctionalMotor(MotorController5010 motor, double slewRate){
+    public GenericFunctionalMotor(MotorController5010 motor, double slewRate) {
         this._motor = motor;
         _motor.setSlewRate(slewRate);
     }
@@ -35,7 +35,7 @@ public class GenericFunctionalMotor implements MotorController5010 {
     }
 
     @Override
-    public MotorController5010 setSlewRate(double rate){
+    public MotorController5010 setSlewRate(double rate) {
         _motor.setSlewRate(rate);
         return this;
     }
@@ -87,13 +87,14 @@ public class GenericFunctionalMotor implements MotorController5010 {
         _motor.invert(inverted);
         return this;
     }
+
     @Override
-    public GenericEncoder getMotorEncoder(){
+    public GenericEncoder getMotorEncoder() {
         return _motor.getMotorEncoder();
     }
 
     @Override
-    public GenericEncoder getMotorEncoder(Type sensorType, int countsPerRev){
+    public GenericEncoder getMotorEncoder(Type sensorType, int countsPerRev) {
         return _motor.getMotorEncoder(sensorType, countsPerRev);
     }
 
@@ -106,5 +107,10 @@ public class GenericFunctionalMotor implements MotorController5010 {
     public void factoryDefault() {
         // Not sure if it needs to return anything
         _motor.factoryDefault();
+    }
+
+    @Override
+    public void setEncoder(GenericEncoder encoder) {
+        _motor.setEncoder(encoder);
     }
 }
